@@ -18,6 +18,9 @@ class FlyerChatVideoMessage extends StatefulWidget {
   /// The video message data model.
   final VideoMessage message;
 
+  /// The index of the message in the list.
+  final int index;
+
   /// Optional HTTP headers for authenticated video requests.
   /// Commonly used for authorization tokens, e.g., {'Authorization': 'Bearer token'}.
   final Map<String, String>? headers;
@@ -82,6 +85,7 @@ class FlyerChatVideoMessage extends StatefulWidget {
   const FlyerChatVideoMessage({
     super.key,
     required this.message,
+    required this.index,
     this.headers,
     this.borderRadius,
     this.constraints = const BoxConstraints(maxHeight: 300),

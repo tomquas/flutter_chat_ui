@@ -111,7 +111,7 @@ class LocalState extends State<Local> {
                 index, {
                 required bool isSentByMe,
                 MessageGroupStatus? groupStatus,
-              }) => FlyerChatVideoMessage(message: message),
+              }) => FlyerChatVideoMessage(message: message, index: index),
           systemMessageBuilder:
               (
                 context,
