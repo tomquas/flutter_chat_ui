@@ -7,7 +7,6 @@ import 'package:thumbhash/thumbhash.dart'
     show rgbaToBmp, thumbHashToApproximateAspectRatio, thumbHashToRGBA;
 import 'package:video_thumbnail/video_thumbnail.dart';
 import 'widgets/full_screen_video_player.dart';
-import 'widgets/hero_video_route.dart';
 import 'widgets/time_and_status.dart';
 
 /// A widget that displays an [VideoMessage].
@@ -234,18 +233,9 @@ class _FlyerChatVideoMessageState extends State<FlyerChatVideoMessage> {
                 context,
                 rootNavigator: widget.useRootNavigator,
               ).push(
-                HeroVideoRoute(
+                PageRouteBuilder(
                   fullscreenDialog: true,
-                  builder:
-                      (_) => FullscreenVideoPlayer(
-                        source: widget.message.source,
-                        aspectRatio: _aspectRatio,
-                        heroTag: widget.message.id,
-                        backgroundColor: widget.fullScreenPlayerBackgroundColor,
-                        loadingIndicatorColor:
-                            widget.fullScreenPlayerLoadingIndicatorColor ??
-                            theme.colors.onSurface.withValues(alpha: 0.8),
-                      ),
+                  pageBuilder: (_, _, _) => FullscreenVideoPlayer(source: widget.message.source),
                 ),
               );
             },
